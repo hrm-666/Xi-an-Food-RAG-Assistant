@@ -44,3 +44,7 @@ vector_db/
 
 # Local uploaded / experimental docs
 rag_docs/
+
+# Local evaluation artifacts
+run_rag_eval.py
+RAG五个典型问题测试报告.md

@@ -1,15 +1,15 @@
-import os
-from utils.loader import load_tech_docs
-from utils.splitter import split_documents
-from utils.database import create_db
-from utils.qa_chain import get_qa_chain
+﻿import os
+from src.loader import load_tech_docs
+from src.splitter import split_documents
+from src.database import create_db
+from src.qa_chain import get_qa_chain
 
 def main():
     print("Starting the application...")
     docs = load_tech_docs("./rag_docs")
     chunks = split_documents(docs)
     vector_db = create_db(chunks)
-    qa_chain = get_qa_chain(vector_db)
+    qa_chain = get_qa_chain(vector_db, chunks)
 
     print("\n" + "="*40)
     print("西安美食助手已就绪！")
@@ -31,7 +31,6 @@ def main():
             response = qa_chain.invoke({"query": query})
             print(f"\n回答：{response['result']}")
             print("\n参考来源：")
-            # 使用 set 去重，防止多个 chunk 来自同一个页面
             sources = set()
             for doc in response["source_documents"]:
                 source_info = f"- {doc.metadata.get('source')} (第 {doc.metadata.get('page', '?')} 页)"
