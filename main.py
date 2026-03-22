@@ -8,7 +8,7 @@ def main():
     print("Starting the application...")
     docs = load_tech_docs("./rag_docs")
     chunks = split_documents(docs)
-    vector_db = create_db(chunks)
+    vector_db = create_db(chunks, persist_directory="./vector_db_cleaned")
     qa_chain = get_qa_chain(vector_db, chunks)
 
     print("\n" + "="*40)

@@ -1,5 +1,6 @@
 import os
 from langchain_community.document_loaders import PyPDFLoader, DirectoryLoader
+from src.cleaner import clean_documents
 
 def load_tech_docs(directory):
     """
@@ -18,7 +19,7 @@ def load_tech_docs(directory):
     print(f"Loading documents from {directory}...")
     documents = loader.load()
     print(f"Loaded {len(documents)} documents.")
-    return documents
+    return clean_documents(documents)
 
 
 

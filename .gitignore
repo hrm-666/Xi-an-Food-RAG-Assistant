@@ -41,10 +41,13 @@ Thumbs.db
 
 # Local vector database and generated data
 vector_db/
+vector_db_cleaned/
 
 # Local uploaded / experimental docs
 rag_docs/
 
-# Local evaluation artifacts
-run_rag_eval.py
+# Local evaluation artifacts and scratch files
 RAG五个典型问题测试报告.md
+RAG数据清洗后五个典型问题测试报告.md
+RAG五个典型问题测试报告.pdf
+pdf_sample.txt
